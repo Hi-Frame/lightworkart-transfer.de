@@ -16,24 +16,37 @@
   header .sub { font-size: 11px; letter-spacing: .5px; }
 
   main { flex: 1; width: 100%; max-width: 520px; margin: 0 auto; padding: 44px 20px 40px; }
-  .stack { position: relative; display: flex; flex-direction: column; gap: 10px; margin-left: 32px; }
+  .stack { position: relative; display: flex; flex-direction: column; gap: 12px; margin-left: 32px; }
 
-  /* schwarzes Dreieck = zurück */
+  /* schwarzes Dreieck = zurück zur Startseite */
   .back { position: absolute; left: -52px; top: 34px; width: 26px; height: 46px; display: block; }
   .back::before { content: ""; position: absolute; inset: 0; background: #000; clip-path: polygon(100% 0, 0 50%, 100% 100%); }
   .back:focus-visible { outline: 3px solid #e8832a; outline-offset: 4px; }
 
-  .card, .btn { border: 2px solid #000; border-radius: 18px; text-decoration: none; color: #000; display: flex; align-items: center; }
-  .card { background: #fff; justify-content: center; min-height: 112px; padding: 14px; margin-bottom: 4px; }
+  .card { border: 2px solid #000; border-radius: 18px; text-decoration: none; color: #000; display: flex; align-items: center; background: #fff; justify-content: center; min-height: 112px; padding: 14px; margin-bottom: 4px; }
   .card img { max-width: 100%; max-height: 90px; height: auto; display: block; }
 
-  .btn { background: #d9d9d9; width: 82%; height: 58px; padding: 0 14px; gap: 18px; font-size: 14px; transition: background .15s; }
+  .btn { 
+    border: 2px solid #000; 
+    border-radius: 18px; 
+    text-decoration: none; 
+    color: #000; 
+    display: flex; 
+    align-items: center; 
+    background: #d9d9d9; 
+    width: 82%; 
+    height: 58px; 
+    padding: 0 16px; 
+    gap: 16px; 
+    font-size: 14px; 
+    transition: background .15s; 
+  }
   .btn:hover { background: #cbcbcb; }
   .btn:focus-visible { outline: 3px solid #e8832a; outline-offset: 3px; }
-  .btn svg { width: 40px; height: 40px; flex: none; }
-  .btn .label { letter-spacing: .3px; }
-  .btn.insta .label { font-size: 17px; font-weight: 600; letter-spacing: -.3px; }
-  .btn.fb .label { font-size: 17px; font-weight: 700; color: #1877f2; letter-spacing: -.2px; margin-left: 6px; }
+  .btn svg { width: 36px; height: 36px; flex-shrink: 0; }
+  .btn .label { font-weight: bold; letter-spacing: .3px; font-size: 15px; }
+  .btn.insta .label { font-size: 17px; font-weight: 600; }
+  .btn.fb .label { font-size: 17px; font-weight: 700; color: #1877f2; }
 
   footer { text-align: center; padding: 24px 0 36px; font-size: 14px; }
   footer a { color: #000; margin: 0 10px; }
@@ -63,6 +76,45 @@
       <img src="logo-jfz-600x214.png" alt="Jugend Forschungszentrum Schwarzwald-Schönbuch e.V.">
     </div>
 
-    <!-- Homepage Link -->
+    <!-- Homepage Button -->
     <a class="btn" href="https://www.jugendforschungszentrum.de/" target="_blank" rel="noopener">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 2 21h6v15h9V25h6v11h9V21h6z" fill
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 2 21h6v15h9V25h6v11h9V21h6z" fill="#000"/></svg>
+      <span class="label">HOMEPAGE</span>
+    </a>
+
+    <!-- Instagram Button -->
+    <a class="btn insta" href="https://www.instagram.com/therealjfz/?hl=de" target="_blank" rel="noopener">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <defs>
+          <radialGradient id="ig" cx=".3" cy="1.05" r="1.1">
+            <stop offset="0" stop-color="#fdc468"/><stop offset=".25" stop-color="#f6803c"/>
+            <stop offset=".5" stop-color="#e1306c"/><stop offset=".8" stop-color="#833ab4"/>
+            <stop offset="1" stop-color="#5851db"/>
+          </radialGradient>
+        </defs>
+        <rect width="40" height="40" rx="10" fill="url(#ig)"/>
+        <rect x="9" y="9" width="22" height="22" rx="6.5" fill="none" stroke="#fff" stroke-width="2.6"/>
+        <circle cx="20" cy="20" r="5.3" fill="none" stroke="#fff" stroke-width="2.6"/>
+        <circle cx="27" cy="13" r="1.6" fill="#fff"/>
+      </svg>
+      <span class="label">Instagram</span>
+    </a>
+
+    <!-- Facebook Button -->
+    <a class="btn fb" href="https://www.facebook.com/jugendforschungszentrum/?locale=de_DE" target="_blank" rel="noopener">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <rect width="40" height="40" rx="9" fill="#1877f2"/>
+        <path d="M27.5 40V25h5l.9-6h-5.9v-3.8c0-1.7.8-3.2 3.3-3.2h2.7V7.7S30.9 7.3 28.7 7.3c-4.6 0-7.4 2.800-7.4 7.700V19h-5v6h5v15z" fill="#fff"/>
+      </svg>
+      <span class="label">facebook</span>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <a href="impressum.html">Impressum</a>
+  <a href="datenschutz.html">Datenschutz</a>
+</footer>
+
+</body>
+</html>
