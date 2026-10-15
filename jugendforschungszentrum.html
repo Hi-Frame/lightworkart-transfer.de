@@ -51,6 +51,12 @@
     100% { transform: rotate(0deg); }
   }
 
+  .card-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
   .card { 
     border: 2px solid #000; 
     border-radius: 18px; 
@@ -61,14 +67,24 @@
     background: #fff; 
     justify-content: center; 
     min-height: 112px; 
+    width: 100%;
     padding: 14px; 
-    margin-bottom: 4px; 
     transition: transform 0.1s ease;
   }
   .card:hover {
     animation: shake 0.4s ease infinite;
   }
   .card img { max-width: 100%; max-height: 90px; height: auto; display: block; }
+
+  /* Zusätzliches Icon rechts neben der Logo-Karte */
+  .side-icon {
+    position: absolute;
+    left: calc(100% + 14px);
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    display: block;
+  }
 
   .btn { 
     border: 2px solid #000; 
@@ -118,9 +134,12 @@
     <!-- Zurück zur Startseite -->
     <a class="back" href="index.html" aria-label="Zurück zur Startseite"></a>
 
-    <!-- Logo-Karte -->
-    <div class="card">
-      <img src="logo-jfz-600x214.png" alt="Jugend Forschungszentrum Schwarzwald-Schönbuch e.V.">
+    <!-- Logo-Karte mit Icon rechts daneben -->
+    <div class="card-wrapper">
+      <div class="card">
+        <img src="logo-jfz-600x214.png" alt="Jugend Forschungszentrum Schwarzwald-Schönbuch e.V.">
+      </div>
+      <img class="side-icon" src="study_ecology_research_lab_knowledge_learning_science_education_biology_icon_228369.svg" alt="Research Icon">
     </div>
 
     <!-- Homepage Button -->
