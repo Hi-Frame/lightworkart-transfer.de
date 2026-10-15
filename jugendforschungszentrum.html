@@ -6,7 +6,7 @@
 <title>Jugend Forschungszentrum – Lightworkart Transfer</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: 100%; }
+  html, body { height: 100%; overflow-x: hidden; }
   body { 
     font-family: Arial, Helvetica, sans-serif; 
     background: #fff; 
@@ -15,25 +15,91 @@
     flex-direction: column; 
     position: relative;
   }
+  
+  /* Hintergrundbild mit 27% Deckkraft */
   body::before {
     content: "";
-    position: absolute;
+    position: fixed;
     inset: 0;
     background-image: url('Lightworkart_Pro-58572.jpg');
     background-size: cover;
     background-position: center;
     opacity: 0.27;
     pointer-events: none;
-    z-index: -1;
+    z-index: -2;
   }
 
-  header { background: #000; height: 72px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #fff; }
+  /* Blasen-Container im Hintergrund */
+  .bubbles {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .bubble {
+    position: absolute;
+    bottom: -150px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    animation: rise linear infinite;
+  }
+
+  @keyframes rise {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-110vh) scale(1);
+      opacity: 0;
+    }
+  }
+
+  /* Verschiedene Größen und Geschwindigkeiten (Groß = schneller, Klein = langsamer) */
+  .bubble.large {
+    width: 70px;
+    height: 70px;
+    animation-duration: 9s;
+  }
+  .bubble.medium {
+    width: 45px;
+    height: 45px;
+    animation-duration: 12s;
+  }
+  .bubble.small {
+    width: 25px;
+    height: 25px;
+    animation-duration: 16s;
+  }
+
+  /* Positionen und Verzögerungen der Blasen */
+  .bubble:nth-child(1) { left: 10%; animation-delay: 0s; }
+  .bubble:nth-child(2) { left: 25%; animation-delay: 3s; }
+  .bubble:nth-child(3) { left: 40%; animation-delay: 1.5s; }
+  .bubble:nth-child(4) { left: 55%; animation-delay: 5s; }
+  .bubble:nth-child(5) { left: 70%; animation-delay: 2.5s; }
+  .bubble:nth-child(6) { left: 85%; animation-delay: 4s; }
+  .bubble:nth-child(7) { left: 20%; animation-delay: 7s; }
+  .bubble:nth-child(8) { left: 60%; animation-delay: 6s; }
+
+  header { background: #000; height: 72px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #fff; position: relative; z-index: 2; }
   header a { color: inherit; text-decoration: none; display: flex; align-items: baseline; gap: 8px; }
   header .brand { font-size: 24px; letter-spacing: .5px; }
   header .brand span { color: #e8832a; }
   header .sub { font-size: 11px; letter-spacing: .5px; }
 
-  main { flex: 1; width: 100%; max-width: 520px; margin: 0 auto; padding: 44px 20px 40px; }
+  main { flex: 1; width: 100%; max-width: 520px; margin: 0 auto; padding: 44px 20px 40px; position: relative; z-index: 2; }
   .stack { position: relative; display: flex; flex-direction: column; gap: 12px; margin-left: 32px; }
 
   /* schwarzes Dreieck = zurück zur Startseite */
@@ -76,7 +142,7 @@
   }
   .card img { max-width: 100%; max-height: 90px; height: auto; display: block; }
 
-  /* Angepasste Größe für das Icon rechts daneben */
+  /* Icon rechts daneben */
   .side-icon {
     position: absolute;
     left: calc(100% + 14px);
@@ -111,7 +177,7 @@
   .btn.insta .label { font-size: 17px; font-weight: 600; }
   .btn.fb .label { font-size: 17px; font-weight: 700; color: #1877f2; }
 
-  footer { text-align: center; padding: 24px 0 36px; font-size: 14px; }
+  footer { text-align: center; padding: 24px 0 36px; font-size: 14px; position: relative; z-index: 2; }
   footer a { color: #000; margin: 0 10px; }
 
   @media (min-width: 700px) {
@@ -121,6 +187,18 @@
 </style>
 </head>
 <body>
+
+  <!-- Aufsteigende Blasen im Hintergrund -->
+  <div class="bubbles">
+    <div class="bubble large"></div>
+    <div class="bubble small"></div>
+    <div class="bubble medium"></div>
+    <div class="bubble small"></div>
+    <div class="bubble large"></div>
+    <div class="bubble medium"></div>
+    <div class="bubble small"></div>
+    <div class="bubble large"></div>
+  </div>
 
 <header>
   <a href="index.html" aria-label="Zur Startseite">
@@ -134,7 +212,7 @@
     <!-- Zurück zur Startseite -->
     <a class="back" href="index.html" aria-label="Zurück zur Startseite"></a>
 
-    <!-- Logo-Karte mit angepasstem Icon rechts daneben -->
+    <!-- Logo-Karte mit Icon rechts daneben -->
     <div class="card-wrapper">
       <div class="card">
         <img src="logo-jfz-600x214.png" alt="Jugend Forschungszentrum Schwarzwald-Schönbuch e.V.">
@@ -178,4 +256,9 @@
 </main>
 
 <footer>
-  <a href="
+  <a href="https://lightworkart.de/impressum/" target="_blank" rel="noopener">Impressum</a>
+  <a href="https://lightworkart.de/datenschutz/" target="_blank" rel="noopener">Datenschutz</a>
+</footer>
+
+</body>
+</html>
