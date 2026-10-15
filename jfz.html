@@ -16,7 +16,7 @@
     position: relative;
   }
   
-  /* Hintergrundbild mit 27% Deckkraft */
+  /* Hintergrundbild mit 62% Deckkraft */
   body::before {
     content: "";
     position: fixed;
@@ -24,7 +24,7 @@
     background-image: url('Lightworkart_ProS-12314.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.27;
+    opacity: 0.62;
     pointer-events: none;
     z-index: -2;
   }
@@ -100,7 +100,7 @@
   main { flex: 1; width: 100%; max-width: 520px; margin: 0 auto; padding: 30px 20px 40px; position: relative; z-index: 2; }
   .stack { position: relative; display: flex; flex-direction: column; gap: 12px; margin-left: 32px; }
 
-  /* Zurück-Pfeil zur Startseite */
+  /* Zurück-Pfeil */
   .back { position: absolute; left: -52px; top: 34px; width: 26px; height: 46px; display: block; }
   .back::before { content: ""; position: absolute; inset: 0; background: #000; clip-path: polygon(100% 0, 0 50%, 100% 100%); }
   .back:focus-visible { outline: 3px solid #e8832a; outline-offset: 4px; }
@@ -117,156 +117,4 @@
   /* Shake Animation */
   @keyframes shake {
     0% { transform: rotate(0deg); }
-    20% { transform: rotate(-1.5deg); }
-    40% { transform: rotate(1.5deg); }
-    60% { transform: rotate(-1deg); }
-    80% { transform: rotate(1deg); }
-    100% { transform: rotate(0deg); }
-  }
-
-  .card-container { 
-    border: 2px solid #000; 
-    border-radius: 18px; 
-    text-decoration: none; 
-    color: #000; 
-    display: flex; 
-    align-items: center; 
-    background: #fff; 
-    justify-content: center; 
-    min-height: 112px; 
-    width: 100%;
-    padding: 14px; 
-    transition: transform 0.1s ease;
-  }
-  .card-container:hover {
-    animation: shake 0.4s ease infinite;
-  }
-  .card-container img { max-width: 100%; max-height: 90px; height: auto; display: block; }
-
-  .btn { 
-    border: 2px solid #000; 
-    border-radius: 18px; 
-    text-decoration: none; 
-    color: #000; 
-    display: flex; 
-    align-items: center; 
-    background: #d9d9d9; 
-    width: 82%; 
-    height: 58px; 
-    padding: 0 16px; 
-    gap: 16px; 
-    font-size: 14px; 
-    transition: background .15s ease; 
-  }
-  .btn:hover { 
-    background: #cbcbcb; 
-    animation: shake 0.4s ease infinite;
-  }
-  .btn:focus-visible { outline: 3px solid #e8832a; outline-offset: 3px; }
-  .btn svg, .btn img { width: 36px; height: 36px; flex-shrink: 0; object-fit: contain; }
-  .btn .label { font-weight: bold; letter-spacing: .3px; font-size: 15px; }
-  .btn.insta .label { font-size: 17px; font-weight: 600; }
-  .btn.fb .label { font-size: 17px; font-weight: 700; color: #1877f2; }
-  .btn.yt .label { font-size: 17px; font-weight: 700; }
-  .btn.ki .label { font-size: 13px; font-weight: 600; }
-
-  footer { text-align: center; padding: 24px 0 36px; font-size: 14px; position: relative; z-index: 2; }
-  footer a { color: #000; margin: 0 10px; }
-
-  @media (min-width: 700px) {
-    main { padding-top: 38px; }
-    .btn { width: 82%; }
-  }
-</style>
-</head>
-<body>
-
-  <!-- Aufsteigende Blasen im Hintergrund -->
-  <div class="bubbles">
-    <div class="bubble large"></div>
-    <div class="bubble small"></div>
-    <div class="bubble medium"></div>
-    <div class="bubble small"></div>
-    <div class="bubble large"></div>
-    <div class="bubble medium"></div>
-    <div class="bubble small"></div>
-    <div class="bubble large"></div>
-  </div>
-
-<header>
-  <a href="index.html" aria-label="Zur Startseite">
-    <span class="brand">LIGHTWORK<span>ART</span></span>
-    <span class="sub">TRANSFER</span>
-  </a>
-</header>
-
-<main>
-  <div class="stack">
-    <!-- Zurück zur Startseite -->
-    <a class="back" href="index.html" aria-label="Zurück zur Startseite"></a>
-
-    <!-- Logo-Karte -->
-    <div class="card-container">
-      <img src="logo-jfz-600x214.png" alt="Jugend Forschungszentrum Schwarzwald-Schönbuch e.V.">
-    </div>
-
-    <!-- Überschrift LINKS -->
-    <div class="links-title">LINKS</div>
-
-    <!-- Homepage Button -->
-    <a class="btn" href="https://www.jugendforschungszentrum.de/" target="_blank" rel="noopener">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 2 21h6v15h9V25h6v11h9V21h6z" fill="#000"/></svg>
-      <span class="label">HOMEPAGE</span>
-    </a>
-
-    <!-- Instagram Button -->
-    <a class="btn insta" href="https://www.instagram.com/therealjfz/?hl=de" target="_blank" rel="noopener">
-      <svg viewBox="0 0 40 40" aria-hidden="true">
-        <defs>
-          <radialGradient id="ig" cx=".3" cy="1.05" r="1.1">
-            <stop offset="0" stop-color="#fdc468"/><stop offset=".25" stop-color="#f6803c"/>
-            <stop offset=".5" stop-color="#e1306c"/><stop offset=".8" stop-color="#833ab4"/>
-            <stop offset="1" stop-color="#5851db"/>
-          </radialGradient>
-        </defs>
-        <rect width="40" height="40" rx="10" fill="url(#ig)"/>
-        <rect x="9" y="9" width="22" height="22" rx="6.5" fill="none" stroke="#fff" stroke-width="2.6"/>
-        <circle cx="20" cy="20" r="5.3" fill="none" stroke="#fff" stroke-width="2.6"/>
-        <circle cx="27" cy="13" r="1.6" fill="#fff"/>
-      </svg>
-      <span class="label">Instagram</span>
-    </a>
-
-    <!-- Facebook Button -->
-    <a class="btn fb" href="https://www.facebook.com/jugendforschungszentrum/?locale=de_DE" target="_blank" rel="noopener">
-      <svg viewBox="0 0 40 40" aria-hidden="true">
-        <rect width="40" height="40" rx="9" fill="#1877f2"/>
-        <path d="M27.5 40V25h5l.9-6h-5.9v-3.8c0-1.7.8-3.2 3.3-3.2h2.7V7.7S30.9 7.3 28.7 7.3c-4.6 0-7.4 2.800-7.4 7.700V19h-5v6h5v15z" fill="#fff"/>
-      </svg>
-      <span class="label">facebook</span>
-    </a>
-
-    <!-- YouTube Button -->
-    <a class="btn yt" href="https://www.youtube.com/@jugendforscht-nordschwarzwald" target="_blank" rel="noopener">
-      <svg viewBox="0 0 40 28" width="36" height="28" aria-hidden="true">
-        <path d="M39.1 4.4c-.5-1.9-2-3.4-3.9-3.9C31.7 0 20 0 20 0S8.3 0 4.8 0.5C2.9 1 1.4 2.5 0.9 4.4 0 8.3 0 14 0 14s0 5.7 0.9 9.6c0.5 1.9 2 3.4 3.9 3.9C8.3 28 20 28 20 28s11.7 0 15.2-0.5c1.9-0.5 3.4-2 3.9-3.9C40 19.7 40 14 40 14s0-5.7-0.9-9.6z" fill="#ff0000"/>
-        <polygon points="16,19 26,14 16,9" fill="#fff"/>
-      </svg>
-      <span class="label">YouTube</span>
-    </a>
-
-    <!-- KI-Kurs Button -->
-    <a class="btn ki" href="https://www.jugendforschungszentrum.de/jfz-course/🤖-ki-in-der-medizin-ki-macht-schule/" target="_blank" rel="noopener">
-      <img src="study_ecology_research_lab_knowledge_learning_science_education_biology_icon_228369.svg" alt="KI Icon">
-      <span class="label">KI in der Medizin & KI macht Schule</span>
-    </a>
-  </div>
-</main>
-
-<footer>
-  <a href="https://lightworkart.de/impressum/" target="_blank" rel="noopener">Impressum</a>
-  <a href="https://lightworkart.de/datenschutz/" target="_blank" rel="noopener">Datenschutz</a>
-</footer>
-
-</body>
-</html>
+    20% { transform: rotate(-1.5deg
