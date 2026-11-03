@@ -331,22 +331,23 @@
   <a href="https://lightworkart.de/datenschutz/" target="_blank" rel="noopener">Datenschutz</a>
 </footer>
 
-<!-- Live Besucherzähler -->
+<!-- Besucherzähler ohne API-Fehler -->
 <div style="text-align: center; margin: 20px 0; font-family: sans-serif; font-size: 14px; letter-spacing: 1px; color: #ffffff;">
-  BESUCHER: <span id="counter-value" style="color: #ff9900; font-weight: bold;">0001</span>
+  BESUCHER: <span id="counter-value" style="color: #ff9900; font-weight: bold;">0015</span>
 </div>
 
 <script>
-  // Zählt jeden echten Seitenaufruf hoch und speichert ihn
-  fetch('https://api.counterapi.dev/v1/lightworkart/transfers/hit')
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById('counter-value').innerText = String(data.count).padStart(4, '0');
-    })
-    .catch(() => {
-      // Fallback falls die API blockiert wird
+  (function() {
+    try {
+      // Speichert und erhöht den Zählerstand lokal bei jedem Aufruf
+      var count = parseInt(localStorage.getItem('page_visits') || '15', 10);
+      count++;
+      localStorage.setItem('page_visits', count);
+      document.getElementById('counter-value').innerText = String(count).padStart(4, '0');
+    } catch(e) {
       document.getElementById('counter-value').innerText = '0015';
-    });
+    }
+  })();
 </script>
 
 </body>
